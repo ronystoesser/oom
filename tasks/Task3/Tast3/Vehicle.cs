@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 
 namespace Task3
 {
@@ -15,6 +16,7 @@ namespace Task3
             Console.WriteLine("{0} faehrt mit {1} km/h", Model, velocity);
         }
 
+        [JsonConstructor]
         //Constructor
         public Vehicle(string model, string HP, decimal price)
         {

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
+using System.IO;
 
 namespace Task3 
 {
@@ -40,11 +42,25 @@ namespace Task3
 
                 bikes[1].fahren(120);
                 cars[0].fahren(200);
+
+                //Json Implementierung
+
+                var text = JsonConvert.SerializeObject(cars);
+                var desktop = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+                var filename = Path.Combine(desktop, "items.json");
+                File.WriteAllText(filename, text);
+
+                var textFromFile = File.ReadAllText(filename);
+                var itemsFromFile = JsonConvert.DeserializeObject<Car[]>(text);
+                Console.WriteLine(itemsFromFile);
+
             }
             catch (Exception e)
             {
                 Console.WriteLine("Error: " + e.Message);
             }
+
+            
         }
     }
     
