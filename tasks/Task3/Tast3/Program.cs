@@ -43,6 +43,7 @@ namespace Task3
                 bikes[1].fahren(120);
                 cars[0].fahren(200);
 
+
                 //Json Implementierung
 
                 var text = JsonConvert.SerializeObject(cars);
@@ -52,7 +53,7 @@ namespace Task3
 
                 var textFromFile = File.ReadAllText(filename);
                 var itemsFromFile = JsonConvert.DeserializeObject<Car[]>(text);
-                Console.WriteLine(itemsFromFile);
+                foreach (var x in itemsFromFile) Console.WriteLine($"{x.Model} {x.HorsePw} {x.Price} {x.Interior}");
 
             }
             catch (Exception e)
