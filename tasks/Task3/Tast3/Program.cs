@@ -29,6 +29,14 @@ namespace Task3
                 new Bike("Ducati", "85", 4500, "Race"),
                 };
 
+                var vehicle = new Vehicle[]
+                    {
+                        new Car("Ferrari", "600", 150000, "leder"),
+                        new Car("Lamborghini", "680", 180000, "leder"),
+                        new Bike("Aprilia", "80", 4000, "Race"),
+                        new Bike("BMW", "90", 5000, "Race"),
+                    };
+
 
                 foreach (var x in cars)
                 {
@@ -46,6 +54,11 @@ namespace Task3
 
                 //Json Implementierung
 
+                //Serialization using mixed array
+                var settings = new JsonSerializerSettings() { Formatting = Formatting.Indented, TypeNameHandling = TypeNameHandling.Auto };
+                Console.WriteLine(JsonConvert.SerializeObject(vehicle, settings));
+
+                //File items auf den Desktop
                 var text = JsonConvert.SerializeObject(cars);
                 var desktop = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
                 var filename = Path.Combine(desktop, "items.json");

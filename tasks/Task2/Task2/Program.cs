@@ -12,6 +12,7 @@ namespace Task2
         {
             var cars = new[]
             {
+                //objects
                 new Car("Audi", "150", 20000),
                 new Car("VW", "100", 17000),
                 new Car("opel", "85", 15000),

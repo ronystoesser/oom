@@ -9,10 +9,11 @@ namespace Task2
 {
     public class Car
     {
-        private decimal my_price;
+        private decimal my_price;   //private field
 
-        public Car(string model, string HP, decimal price)
+        public Car(string model, string HP, decimal price)   
         {
+            //constructor
             if (string.IsNullOrEmpty(model)) throw new ArgumentException("Model must not be empty.", nameof(model));
             if (string.IsNullOrEmpty(HP)) throw new ArgumentException("HP must not be empty,", nameof(HP));
 
@@ -21,12 +22,12 @@ namespace Task2
             UpdatePrice(price);
         }
 
-
+        //Properties
         public string Model { get; }
 
         public string HorsePw { get; }
 
-        public decimal Price
+        public decimal Price       
         {
             get
             {
@@ -41,7 +42,7 @@ namespace Task2
 
        
 
-        public void UpdatePrice(decimal newPrice)
+        public void UpdatePrice(decimal newPrice)  //public method
         {
             if (newPrice < 0) throw new ArgumentException("Price must not be negative.", nameof(newPrice));
             my_price = newPrice;           
